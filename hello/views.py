@@ -7,6 +7,7 @@ import requests
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
 
 # Create your views here.
 def index(request):
@@ -34,7 +35,15 @@ def test_request(request):
 
 def selenium_test(request):
 
-    driver = webdriver.Firefox()
+
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(options=options, executable_path=r'/app/vendor/firefox')
+    # driver.get("http://google.com/")
+    # print ("Headless Chrome Initialized")
+    # driver.quit()
+
+    # driver = webdriver.Firefox()
     driver.get("http://www.python.org")
     assert "Python" in driver.title
     elem = driver.find_element_by_name("q")
