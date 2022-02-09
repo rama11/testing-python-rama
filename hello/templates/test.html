@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+	<div class="container">
+		<a href="/" class="lang-logo">
+			<img src="{% static 'lang-logo.png'%}">
+		</a>
+		<h1>Testing</h1>
+		{% for dataEach in data %}
+		    <h3>{{ dataEach }}</h3>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
