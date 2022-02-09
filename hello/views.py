@@ -36,6 +36,7 @@ def test_request(request):
 def selenium_test(request):
 
 
+
     options = Options()
     options.headless = True
     driver = webdriver.Firefox(options=options, executable_path=r'/app/vendor/firefox/firefox')
