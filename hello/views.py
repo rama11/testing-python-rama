@@ -1,10 +1,10 @@
+import requests
+import os
+
 from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Greeting
-
-import requests
-import os
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
