@@ -7,7 +7,7 @@ import requests
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
+# from selenium.webdriver.firefox.options import Options
 
 # Create your views here.
 def index(request):
@@ -35,9 +35,21 @@ def test_request(request):
 
 def selenium_test(request):
 
-    options = Options()
-    options.headless = True
+    # options = Options()
+    # options.headless = True
     # driver = webdriver.Firefox(options=options, executable_path=r'/app/vendor/firefox/firefox')
+
+    options = webdriver.FirefoxOptions()
+    
+    # enable trace level for debugging 
+    # options.log.level = "trace"
+
+    # options.add_argument("-remote-debugging-port=9224")
+    options.add_argument("-headless")
+    options.add_argument("-disable-gpu")
+    options.add_argument("-no-sandbox")
+
+    binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
     
     driver = webdriver.Firefox(
         options=options, 
