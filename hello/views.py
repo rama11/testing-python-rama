@@ -38,7 +38,13 @@ def selenium_test(request):
     options = Options()
     options.headless = True
     # driver = webdriver.Firefox(options=options, executable_path=r'/app/vendor/firefox/firefox')
-    driver = webdriver.Firefox(options=options, executable_path=r'/app/vendor/firefox')
+    
+    driver = webdriver.Firefox(
+        options=options, 
+        firefox_binary=binary,
+        executable_path=os.environ.get('GECKODRIVER_PATH')
+    )
+
     # driver.get("http://google.com/")
     # print ("Headless Chrome Initialized")
     # driver.quit()
